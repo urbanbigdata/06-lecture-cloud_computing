@@ -1,0 +1,314 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>06-lecture-cloud_computing</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+		
+		<!-- Include buttons for opening and closing the notes canvas or the chalkboard -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="images/astemir-almov-265122-unsplash.jpg" data-state="dimbg_dark">
+				<!-- Front page -->
+					<h1>Urban Big Data Analytics</h1>
+					
+					<i>Class 6</i><br>
+					<i>Cloud Computing</i><br><br>
+					
+					<p>
+					<small> July 25, 2018<br><br>
+					
+					Instructor: <a href="http://andyhong.org" target="_blank">Andy Hong</a>, <i>PhD</i><br>
+					
+					Postdoctoral Research and Teaching Fellow<br>
+					School of Population and Public Health<br>
+					University of British Columbia
+					</small>
+					</p>
+				</section>
+				<section>
+				<!-- Slide 1 -->
+					<h2>Let's do the Assignment 3 together</h2>
+					<ul>
+						<li>Why bother to learn coding?</li>
+						<li>Reproducibility</li>
+						<li>Room for improvement</li>
+						<li>Let's cover some R basics first</li>
+					</ul>					
+				</section>
+				<section>
+				<!-- Slide 2 -->
+					<h2>R Basics - What are packges?</h2>
+					<ul>
+						<li>Add more functions</li>
+						<li>Written by global R users</li>
+						<li>From computation to visualization</li>
+						<li>New packages avialable for free</li>
+					</ul>
+				</section>
+				<section>
+				<!-- Slide 3 -->
+					<h2>R Basics - What are packages?</h2>
+					<ul>
+						<img src="images/phone_app.png" width="700">
+					</ul>
+				</section>
+				<section>
+				<!-- Slide 4 -->	
+					<h2>R Packages</h2>
+					<div style="text-align: left; margin-left:80px">
+					Installing packages:<br>
+					<pre ><code data-trim data-noescape>install.packages("ggplot2")</code></pre><br>
+					
+					Loading packages:<br>
+					<pre><code data-trim data-noescape>library(ggplot2)</code></pre>
+					</div>
+				</section>
+				<section>
+				<!-- Slide 5 -->	
+					<h2>R Studio</h2>
+					<img src="images/rstudio.png" width="800">
+				</section>
+				<section>
+				<!-- Slide 6 -->	
+				<h2>Vectors</h2>
+				<pre><code data-trim data-noescape>
+				> x = c(1, 5, 4, 9, 0)
+				>
+				> length(x)
+				[1] 5
+				>
+				> x = c(1, 5.4, TRUE, "hello")
+				>
+				> x
+				[1] "1"   "5.4"   "TRUE"   "hello"
+				</code></pre>
+				</section>
+								
+				<section>
+				<!-- Slide 7 -->	
+				<h2>Lists</h2>
+				<pre><code data-trim data-noescape>
+				> x = list(1, 2)
+				> x
+				[[1]]
+				[1] 1
+
+				[[2]]
+				[1] 2
+				> 
+				> x = list("new","class")
+				> x
+				[[1]]
+				[1] "new"
+
+				[[2]]
+				[1] "class"
+				</code></pre>
+				</section>
+				<section>
+					
+				<!-- Slide 8 -->	
+				<h2>Data Frames</h2>
+				<pre><code data-trim data-noescape>
+				> x = data.frame(column1=c(1,2,3), column2=c("A","B","C"))
+				> x
+				  column1 column2
+				1       1       A
+				2       2       B
+				3       3       C
+				</code></pre>
+				</section>
+				<section>
+				
+				<!-- Slide 9 -->
+				<h2>Basic commands</h2>
+				<pre><code data-trim data-noescape>
+				 > str(x)
+				 'data.frame':	3 obs. of  2 variables:
+				  $ column1: num  1 2 3
+				  $ column2: Factor w/ 3 levels "A","B","C": 1 2 3
+				 
+				 > head(x)
+				   column1 column2
+				 1       1       A
+				 2       2       B
+				 3       3       C
+				 
+				 > View(x) # Note "V" is capitalized
+				</code></pre>
+				</section>
+				
+				<!-- Slide 10 -->
+				<section>
+				<h2>Basic commands</h2>
+				
+				<pre><code data-trim data-noescape>
+				# Testing for equality in R using ==	
+				> x = 1
+				> if(x == 1) cat("x is 1!") else cat("x is not 1!")
+				x is 1!
+				
+				# Boolean algebra: TRUE/FALSE statements and math operators:
+				< means "less than"
+				<= means "less than or equal"
+				>= means "more than or equal"
+				!= "not equal to"
+
+				# Logical operators:
+				& means “and”
+				| means “or”
+				</code></pre>
+				</section>
+				<section data-background-image="images/jumpoff.jpg" data-state="dimbg_dark">
+				<!-- Slide 11 -->	
+					<h2>Let's dive into the Assignment 3</h2>
+				</section>
+				<section data-background-image="images/cloud.jpg" data-state="dimbg_dark">
+				<!-- Slide 12 -->	
+					<h2>Cloud computing</h2>
+				</section>
+				<section data-background-image="images/cloud.jpg" data-state="dimbg_darker">
+				<!-- Slide 13 -->	
+					<h2>What is cloud computing?</h2>
+					<ul>
+						<li>Computing services over the Internet (“the cloud”)</li>
+						<li>Charge based on usage, like electricity</li>
+						<li class="fragment fade-up">Example: <br>
+							<ul>
+								<li>Music streaming services</li>
+								<li>Storing/sharing files online</li>
+								<li>Turn on/off apps from cloud</li>
+							</ul>	
+						</li>	
+					</ul>
+				</section>
+				<section>
+				<!-- Slide 14 -->	
+					<h2>Why cloud computing?</h2>
+					<ol>
+						<li class="fragment fade-up">Lower costs: no hardware/software</li>
+						<li class="fragment fade-up">Faster: quick to set up</li>
+						<li class="fragment fade-up">Scale on demand</li>
+						<li class="fragment fade-up">Little maintenance</li>
+						<li class="fragment fade-up">Reliable + backup</li>
+					</ol>
+				</section>
+				<section>
+				<!-- Slide 15 -->	
+					<h2>Big probem with cloud</h2>
+					<img src="images/icloud.png" width="800">
+				</section>
+				<section>
+				<!-- Slide 15 -->	
+					<h2>Types of cloud services</h2>
+					<ul>
+						<li class="fragment fade-up">Infrastructure-as-a-service (IaaS): servers, virtual machines, storage</li>
+						<li class="fragment fade-up">Platform-as-a-service (PaaS): on-demand environment for development</li>
+						<li class="fragment fade-up">Software-as-a-service (SaaS): host and manage softwares online</li>
+						<li class="fragment fade-right"><font color="DeepSkyBlue">Database-as-a-service (DBaaS)</font>: building and managing database online</li>
+					</ul>	  
+				</section>
+				<section>
+				<!-- Slide 16 -->	
+					<h2>Database-as-a-Service</h2>
+					<img src="images/cloud_architecture.png" width="800">					  
+				</section>
+				<section>
+				<!-- Slide 17 -->	
+					<h2>Cloud computing services</h2>
+					<img src="images/cloud_giants.png" width="750">					  
+				</section>
+				<section>
+				<!-- Slide 18 -->	
+					<h2>Google BigQuery</h2>
+					<img src="images/bigquery.png" width="750">
+				</section>
+				<section>
+				<!-- Slide 19 -->	
+					<h2>Google End-to-End Pipeline</h2>
+		  		  	<img src="images/bigquery_pipeline.png" width="750">
+				</section>
+				<section>
+				<!-- Slide 20 -->	
+					<h2>Google BigQuery Demo</h2>					
+					<a href="https://console.cloud.google.com/bigquery?_ga=2.98505183.-1598067687.1524153977&_gac=1.15403332.1531721849.CjwKCAjw4avaBRBPEiwA_ZetYntab-cKbsC9OHZoYWHkjVsI75hGFo_ZlygJVVDxRd8le0o9t0PaEBoC8PoQAvD_BwE&folder&organizationId" target="_blank">BigQuery Console (login required)</a>			
+				</section>
+				<section>
+				<!-- Slide 21 -->
+					<h2>Group project Part 2</h2>
+					<a href="https://urbanbigdata.github.io/98-group-project/GroupProject_part2.html" target="_blank">Instruction</a>
+				</section>
+				<section>
+				<!-- Slide 24 -->	
+					<h3>Any questions?</h3>
+					For all the course materials, go to <a href="https://urbanbigdata.github.io/" target="_blank">urbanbigdata.github.io</a>
+				</section>
+					
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber : true,
+				//previewLinks: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				
+				chalkboard: { 
+					// optionally load pre-recorded chalkboard drawing from file
+					//src: "chalkboard.json",
+					color: [ 'rgba(0,0,255,1)', 'rgba(255,255,255,0.5)' ],
+					background: [ 'rgba(127,127,127,.1)' , 'reveal.js-plugins/chalkboard/img/blackboard.png' ]
+					
+				},
+				  
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/chalkboard/chalkboard.js' }
+				],
+				
+				keyboard: {
+				    67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
+				    66: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
+				    46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+				     8: function() { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+				    68: function() { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
+				}
+			});
+		</script>
+	</body>
+</html>
